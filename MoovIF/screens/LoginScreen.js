@@ -1,43 +1,38 @@
-// screens/LoginScreen.js
-
-import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert } from 'react-native';
+import React from 'react';
+import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
 
 export default function LoginScreen() {
-  const [email, setEmail] = useState('');
-  const [senha, setSenha] = useState('');
-
-  const handleLogin = () => {
-    if (email === '' || senha === '') {
-      Alert.alert('Erro', 'Por favor, preencha todos os campos.');
-    } else {
-      Alert.alert('Login', `Email: ${email}\nSenha: ${senha}`);
-    }
-  };
-
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Login</Text>
+      <Text style={styles.title}>MoovIF</Text>
+
+      <View style={styles.iconContainer}>
+        <Image
+          source={require('../assets/logo.png')}
+          style={styles.icon}
+        />
+      </View>
 
       <TextInput
         style={styles.input}
-        placeholder="E-mail"
-        keyboardType="email-address"
-        value={email}
-        onChangeText={setEmail}
+        placeholder="E-mail:"
+        placeholderTextColor="#000"
       />
-
       <TextInput
         style={styles.input}
-        placeholder="Senha"
+        placeholder="Senha:"
+        placeholderTextColor="#000"
         secureTextEntry
-        value={senha}
-        onChangeText={setSenha}
       />
 
-      <TouchableOpacity style={styles.botao} onPress={handleLogin}>
-        <Text style={styles.textoBotao}>Entrar</Text>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.buttonText}>Entrar</Text>
       </TouchableOpacity>
+
+      <Text style={styles.footerText}>
+        Não possui uma conta? Entre em contato conosco por{' '}
+        <Text style={styles.link}>aqui.</Text>
+      </Text>
     </View>
   );
 }
@@ -46,30 +41,52 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    justifyContent: 'center',
     paddingHorizontal: 30,
-  },
-  titulo: {
-    fontSize: 28,
-    fontWeight: 'bold',
-    marginBottom: 30,
-    textAlign: 'center',
-  },
-  input: {
-    backgroundColor: '#eee',
-    padding: 15,
-    marginBottom: 15,
-    borderRadius: 10,
-  },
-  botao: {
-    backgroundColor: '#3b82f6',
-    padding: 15,
-    borderRadius: 10,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  textoBotao: {
-    color: '#fff',
-    fontWeight: 'bold',
+  title: {
+    fontSize: 28,
+    fontWeight: '400',
+    marginBottom: 10,
+    color: '#000',
+  },
+  iconContainer: {
+    marginBottom: 30,
+  },
+  icon: {
+    width: 150,
+    height: 150,
+    borderRadius: 75,
+    resizeMode: 'cover',
+  },
+  input: {
+    width: '100%',
+    height: 45,
+    backgroundColor: '#E0E0E0',
+    borderRadius: 4,
+    marginBottom: 15,
+    paddingHorizontal: 10,
     fontSize: 16,
+  },
+  button: {
+    backgroundColor: '#FF6A00',
+    paddingVertical: 12,
+    paddingHorizontal: 25,
+    borderRadius: 25,
+    marginTop: 10,
+    marginBottom: 20,
+  },
+  buttonText: {
+    color: '#fff',
+    fontSize: 16,
+  },
+  footerText: {
+    textAlign: 'center',
+    fontSize: 14,
+    color: '#000',
+  },
+  link: {
+    color: '#FF3D00',
   },
 });
