@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet } from 'react-native';
+import Button from "../components/Button";
 
 export default function LoginScreen() {
   return (
@@ -25,9 +26,7 @@ export default function LoginScreen() {
         secureTextEntry
       />
 
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.buttonText}>Entrar</Text>
-      </TouchableOpacity>
+      <Button title={"Entrar"} onPress={() => console.log("entrou")} style={styles.button} />
 
       <Text style={styles.footerText}>
         Não possui uma conta? Entre em contato conosco por{' '}
@@ -70,12 +69,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   button: {
-    backgroundColor: '#FF6A00',
-    paddingVertical: 12,
-    paddingHorizontal: 25,
-    borderRadius: 25,
-    marginTop: 10,
-    marginBottom: 20,
+    width:"80%"
   },
   buttonText: {
     color: '#fff',
