@@ -1,8 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import NavBar from "../components/NavBar";
-
 import Button from "../components/Button";
+
 const Home = () => {
   return (
     <View style={styles.container}>
